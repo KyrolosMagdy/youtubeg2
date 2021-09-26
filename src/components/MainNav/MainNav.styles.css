@@ -1,0 +1,10 @@
+.mainNav_wrapper{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0.25rem 1rem;
+}
+
+.navbar_imageContainer img  {
+    height: 30px
+}
