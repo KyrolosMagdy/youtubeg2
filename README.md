@@ -7,6 +7,15 @@ once you have it in your local directory
 
 ### cd into it
 
+## Create .env for within the root directory
+
+within this file add this variable
+```REACT_APP_YOUTUBE_KEY```
+
+you can get your API_KEY from here https://console.cloud.google.com/apis/credentials
+
+under the credential tab
+
 ### yarn install 
 
 ### yarn start
