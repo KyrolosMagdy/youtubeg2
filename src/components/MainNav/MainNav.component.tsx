@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import YoutubeVideo from '../../assets/images/Logo_of_YouTube.svg.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
