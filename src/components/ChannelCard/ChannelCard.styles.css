@@ -1,0 +1,57 @@
+.channel-info__wrapper{
+    margin-right: 0.5rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left-align {
+    margin-left: 0.5rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.channel-info__wrapper > h4, 
+.left-align > h4 {
+    margin: 0;
+    
+}
+
+.channel-info__subscribe-counter{
+    color: #606060;
+    font-size: 12px;
+    margin: 0;
+}
+
+.channel-description__wrapper{
+    
+    text-align: right;
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.alignLeft{
+    text-align: left;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.alignLeft > img,
+.channel-description__wrapper > img {
+    border-radius: 50%;
+}
+
+.channel-description{
+    text-align: right;
+    font-size: 16px;
+    color: #606060;
+    max-width: 80%;
+    margin-right: 0.5rem;
+}

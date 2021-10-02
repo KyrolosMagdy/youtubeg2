@@ -1,0 +1,22 @@
+.videoDisplayer__container{
+    margin-top: 2rem;
+}
+
+.channel__image{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+}
+.channel__image > img{
+    border-radius: 50%;
+}
+
+.videoDisplayer__info{
+    max-width: 80%;
+}
+
+
+
+.videoDisplayer__info{
+    text-align: right;
+}

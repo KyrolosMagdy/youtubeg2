@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import {
   fetchVideos,
@@ -6,23 +6,28 @@ import {
   videosState,
 } from '../../features/searchVideos/searchVideosSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import YouTube, { Options } from 'react-youtube';
+import { Options } from 'react-youtube';
+import VideoCard from '../VideoCard/VideoCard';
+import { VideoDataType } from '../Shared/VideoDataType/VideoDataType';
+import ChannelCard from '../ChannelCard/ChannelCard.component';
 
 const Videos = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const videosFetched = useAppSelector(videos);
   const isVideosFetched = useAppSelector(videosState) === 'successed';
 
+  const [filteredVideos, setFilteredVideos] = useState();
+
   const opts: Options = {
-    height: '390',
-    width: '640',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
     },
+    width: '60%',
+
+    host: 'https://www.youtube.com',
   };
 
-  console.log('v: ', videosFetched);
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
@@ -31,8 +36,20 @@ const Videos = (): React.ReactElement => {
       {isVideosFetched &&
         //@ts-ignore
 
-        videosFetched.items.map((v) => {
-          return <YouTube videoId={v.id.videoId} id={v.id.kind} opts={opts} />;
+        videosFetched.items.map((v: VideoDataType) => {
+          return (
+            <div>
+              {v.id.kind === 'youtube#channel' ? (
+                <ChannelCard
+                  imageUrl={v.snippet.thumbnails.default.url}
+                  title={v.snippet.title}
+                  align='left'
+                />
+              ) : (
+                <VideoCard video={v} opts={opts} key={v.id.videoId} />
+              )}
+            </div>
+          );
         })}
     </div>
   );

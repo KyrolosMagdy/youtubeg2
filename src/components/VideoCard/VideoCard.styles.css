@@ -1,0 +1,32 @@
+.videoCArd__wrapper{
+    display: flex;
+   margin: 1rem 0;
+   cursor: pointer;
+   max-width: 700px;
+}
+
+.videoCard__info{
+    display: flex;
+    margin-left: 0.5rem;
+    text-align: left;
+}
+
+.videoCard__title{
+    margin: 0;
+}
+
+.videoCard__headline {
+    font-size: 12px;
+    color: #606060;
+    display: flex;
+}
+
+.videoCard__headline > p {
+    margin: 0;
+}
+
+.videoCard__description{
+    margin-top: 20px;
+    font-size: 12px;
+    color: #606060;
+}

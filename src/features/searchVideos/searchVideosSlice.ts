@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import { getVideos } from './searchVideosAPI';
-import { VideoDataType } from '../../components/Shared/VideoDataType/VideoDataType';
+import { Videos } from '../../components/Shared/VideoDataType/VideoDataType';
 
 export interface VideosState {
-  value: VideoDataType | {};
+  value: Videos | {};
   status: 'idle' | 'loading' | 'failed' | 'successed';
 }
 
@@ -16,9 +16,8 @@ const initialState: VideosState = {
 export const fetchVideos = createAsyncThunk(
   'videos/getVideos',
   async (q?: string) => {
-    const response = await getVideos(q);
+    const response: Videos = await getVideos(q);
     // The value we return becomes the `fulfilled` action payload
-    console.log('res: ', response);
     return response;
   }
 );
