@@ -35,9 +35,13 @@ export const videosSlides = createSlice({
         state.status = 'loading';
       })
       .addCase(fetchVideos.fulfilled, (state, action) => {
+        
         state.status = 'successed';
         console.log('action: ', action);
         state.value = action.payload;
+      })
+      .addCase(fetchVideos.rejected, (state) => {
+        state.status = 'failed';
       });
   },
 });

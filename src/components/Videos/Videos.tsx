@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import {
   fetchVideos,
@@ -10,13 +10,12 @@ import { Options } from 'react-youtube';
 import VideoCard from '../VideoCard/VideoCard';
 import { VideoDataType } from '../Shared/VideoDataType/VideoDataType';
 import ChannelCard from '../ChannelCard/ChannelCard.component';
+import LoadingSpinner from '../LoaderSpinner/LoaderSpinner.component';
 
 const Videos = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const videosFetched = useAppSelector(videos);
-  const isVideosFetched = useAppSelector(videosState) === 'successed';
-
-  const [filteredVideos, setFilteredVideos] = useState();
+  const isVideosFetched = useAppSelector(videosState);
 
   const opts: Options = {
     playerVars: {
@@ -31,11 +30,20 @@ const Videos = (): React.ReactElement => {
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
+
+  console.log('isVideoFetched: ', isVideosFetched);
   return (
     <div>
-      {isVideosFetched &&
-        //@ts-ignore
+      {isVideosFetched === 'loading' && <LoadingSpinner />}
 
+      {
+        //@ts-ignore
+        videosFetched && videosFetched.items.length === 0 && (
+          <h6> Try again later </h6>
+        )
+      }
+      {isVideosFetched === 'successed' &&
+        //@ts-ignore
         videosFetched.items.map((v: VideoDataType) => {
           return (
             <div>
