@@ -36,12 +36,6 @@ const Videos = (): React.ReactElement => {
     <div>
       {isVideosFetched === 'loading' && <LoadingSpinner />}
 
-      {
-        //@ts-ignore
-        videosFetched && videosFetched.items.length === 0 && (
-          <h6> Try again later </h6>
-        )
-      }
       {isVideosFetched === 'successed' &&
         //@ts-ignore
         videosFetched.items.map((v: VideoDataType) => {
