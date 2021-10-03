@@ -1,225 +1,101 @@
-.ytp-spinner {
-    position: relative;
-    width: 64px;
-    margin: 50rem auto;
-    z-index: 18;
-    pointer-events: none;
-}
-
-.ytp-spinner-container {
-    pointer-events: none;
+.ytp-spinner_wrapper{
+    display: flex;
     position: absolute;
+    bottom: auto;
+    top: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     width: 100%;
-    padding-bottom: 100%;
-    top: 50%;
-    left: 50%;
-    margin-top: -50%;
-    margin-left: -50%;
-    animation: ytp-spinner-linspin 1568.23529647ms linear infinite;
-    -webkit-animation: ytp-spinner-linspin 1568.23529647ms linear infinite;
+    min-height: 100%;
 }
 
-.ytp-spinner-rotator {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-animation: ytp-spinner-easespin 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
-    animation: ytp-spinner-easespin 5332ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+.ytp-spinner_wrapper > h5{
+    color: #606060
 }
 
-.ytp-spinner-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  
 }
-
-.ytp-spinner-right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
 }
-
-.ytp-spinner-left {
-    right: 49%;
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #606060;
+  margin: -4px 0 0 -4px;
 }
-
-.ytp-spinner-right {
-    left: 49%;
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
 }
-
-.ytp-spinner-circle {
-    box-sizing: border-box;
-    position: absolute;
-    width: 200%;
-    height: 100%;
-    border-style: solid;
-    border-color: #ddd #ddd transparent;
-    border-radius: 50%;
-    border-width: 6px;
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
 }
-
-.ytp-spinner-left .ytp-spinner-circle {
-    left: 0;
-    right: -100%;
-    border-right-color: transparent;
-    -webkit-animation: ytp-spinner-left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
-    animation: ytp-spinner-left-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
 }
-
-.ytp-spinner-right .ytp-spinner-circle {
-    left: -100%;
-    right: 0;
-    border-left-color: transparent;
-    -webkit-animation: ytp-right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
-    animation: ytp-right-spin 1333ms cubic-bezier(0.4, 0.0, 0.2, 1) infinite both;
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
 }
-
-@-webkit-keyframes ytp-spinner-linspin {
-    to {
-        -webkit-transform: rotate(360deg);
-    }
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
 }
-
-@keyframes ytp-spinner-linspin {
-    to {
-        transform: rotate(360deg);
-    }
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
 }
-
-@-webkit-keyframes ytp-spinner-easespin {
-    12.5% {
-        -webkit-transform: rotate(135deg);
-    }
-    25% {
-        -webkit-transform: rotate(270deg);
-    }
-    37.5% {
-        -webkit-transform: rotate(405deg);
-    }
-    50% {
-        -webkit-transform: rotate(540deg);
-    }
-    62.5% {
-        -webkit-transform: rotate(675deg);
-    }
-    75% {
-        -webkit-transform: rotate(810deg);
-    }
-    87.5% {
-        -webkit-transform: rotate(945deg);
-    }
-    to {
-        -webkit-transform: rotate(1080deg);
-    }
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
 }
-
-@keyframes ytp-spinner-easespin {
-    12.5% {
-        transform: rotate(135deg);
-    }
-    25% {
-        transform: rotate(270deg);
-    }
-    37.5% {
-        transform: rotate(405deg);
-    }
-    50% {
-        transform: rotate(540deg);
-    }
-    62.5% {
-        transform: rotate(675deg);
-    }
-    75% {
-        transform: rotate(810deg);
-    }
-    87.5% {
-        transform: rotate(945deg);
-    }
-    to {
-        transform: rotate(1080deg);
-    }
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
 }
-
-@-webkit-keyframes ytp-spinner-left-spin {
-    0% {
-        -webkit-transform: rotate(130deg);
-    }
-    50% {
-        -webkit-transform: rotate(-5deg);
-    }
-    to {
-        -webkit-transform: rotate(130deg);
-    }
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
 }
-
-@keyframes ytp-spinner-left-spin {
-    0% {
-        transform: rotate(130deg);
-    }
-    50% {
-        transform: rotate(-5deg);
-    }
-    to {
-        transform: rotate(130deg);
-    }
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
 }
-
-@-webkit-keyframes ytp-right-spin {
-    0% {
-        -webkit-transform: rotate(-130deg);
-    }
-    50% {
-        -webkit-transform: rotate(5deg);
-    }
-    to {
-        -webkit-transform: rotate(-130deg);
-    }
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
 }
-
-@keyframes ytp-right-spin {
-    0% {
-        transform: rotate(-130deg);
-    }
-    50% {
-        transform: rotate(5deg);
-    }
-    to {
-        transform: rotate(-130deg);
-    }
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
 }
-
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-body {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-end;
-	align-items: center;
-	min-height: 250px;
-	padding-top: 20px;
-	font-weight: bold;
-	background: #f0f0f0;
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
 }
-.infos {
-	width: 500px;
-	text-align: center;
-	font-family: 'Roboto', Arial;
-	font-size: 14px;
-	line-height: 16px;
-	margin-top: 50px;
-	color: #000;
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
 }
-.infos a {
-	color: #555;
-	text-decoration: none;
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
 }
-.infos a:hover {color: #999;}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

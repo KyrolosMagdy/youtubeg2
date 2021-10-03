@@ -12,6 +12,7 @@ import {
 } from '../../features/channel/channelretrieverSlise';
 
 import ChannelCard from '../ChannelCard/ChannelCard.component';
+import LoadingSpinner from '../LoaderSpinner/LoaderSpinner.component';
 
 import './SingleVideoDisplayer.styles.css';
 
@@ -25,13 +26,11 @@ const SingleVideoDisplayerPage = (): React.ReactElement => {
 
   const dispatch = useAppDispatch();
   const channelFetched = useAppSelector(channel);
-  const isChaneelFetched = useAppSelector(channelState) === 'successed';
-
-  console.log('kldhfjkd: ', channelFetched);
+  const isChaneelFetched = useAppSelector(channelState);
 
   useEffect(() => {
     dispatch(fetchChannel(state.video.snippet.channelId));
-  }, []);
+  }, [dispatch, state.video.snippet.channelId]);
 
   if (!state) return <h6>Not Found </h6>;
   return (
@@ -52,26 +51,30 @@ const SingleVideoDisplayerPage = (): React.ReactElement => {
         </div>
       </div>
       <div>
-        {isChaneelFetched && (
-          <ChannelCard
-            imageUrl={
-              //@ts-ignore
-              channelFetched.items[0].snippet.thumbnails.default.url
-            }
-            title={
-              //@ts-ignore
-              channelFetched.items[0].snippet.title
-            }
-            subscriptionCount={
-              //@ts-ignore
-              channelFetched.items[0].statistics.subscriberCount
-            }
-            discription={
-              //@ts-ignore
-              channelFetched.items[0].snippet.description
-            }
-            showDiscription={true}
-          />
+        {isChaneelFetched === 'loading' ? (
+          <LoadingSpinner />
+        ) : (
+          isChaneelFetched === 'successed' && (
+            <ChannelCard
+              imageUrl={
+                //@ts-ignore
+                channelFetched.items[0].snippet.thumbnails.default.url
+              }
+              title={
+                //@ts-ignore
+                channelFetched.items[0].snippet.title
+              }
+              subscriptionCount={
+                //@ts-ignore
+                channelFetched.items[0].statistics.subscriberCount
+              }
+              discription={
+                //@ts-ignore
+                channelFetched.items[0].snippet.description
+              }
+              showDiscription={true}
+            />
+          )
         )}
       </div>
     </div>

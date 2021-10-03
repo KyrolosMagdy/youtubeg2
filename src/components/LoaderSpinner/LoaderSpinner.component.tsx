@@ -4,19 +4,18 @@ import './LoadingSpinner.styles.css';
 
 const LoadingSpinner = (): React.ReactElement => {
   return (
-    <div className='ytp-spinner' data-layer='4'>
-      <div>
-        <div className='ytp-spinner-container'>
-          <div className='ytp-spinner-rotator'>
-            <div className='ytp-spinner-left'>
-              <div className='ytp-spinner-circle'></div>
-            </div>
-            <div className='ytp-spinner-right'>
-              <div className='ytp-spinner-circle'></div>
-            </div>
-          </div>
-        </div>
+    <div className='ytp-spinner_wrapper' data-layer='4'>
+      <div className='lds-roller'>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+      <h5> Loading... </h5>
     </div>
   );
 };
