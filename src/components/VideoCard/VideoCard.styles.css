@@ -5,6 +5,10 @@
    max-width: 700px;
 }
 
+.mobile__image-wrapper{
+    display: none;
+}
+
 .videoCard__info{
     display: flex;
     margin-left: 0.5rem;
@@ -29,4 +33,27 @@
     margin-top: 20px;
     font-size: 12px;
     color: #606060;
+}
+
+@media screen and (max-width: 1024px) {
+    .videoCArd__wrapper > img {
+        display: none;
+    }
+
+    .mobile__image-wrapper{
+        display: inline-block   ;
+    }
+
+    .videoCard__headline{
+        font-size: 9px;
+    }
+
+    .videoCard__title{
+        font-size: 12px;
+    }
+
+    .videoCard__description {
+        font-size: 10px;
+        margin-top: 0.25rem;
+    }
 }

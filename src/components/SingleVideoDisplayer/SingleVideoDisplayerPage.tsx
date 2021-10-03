@@ -19,6 +19,7 @@ import './SingleVideoDisplayer.styles.css';
 type RouteState = {
   video: VideoDataType;
   opts: Options;
+  mobileOpts: Options;
 };
 
 const SingleVideoDisplayerPage = (): React.ReactElement => {
@@ -36,11 +37,20 @@ const SingleVideoDisplayerPage = (): React.ReactElement => {
   return (
     <div className='videoDisplayer__container'>
       <div className='videoDisplayer__card'>
-        <YouTube
-          videoId={state.video.id.videoId}
-          id={state.video.id.videoId}
-          opts={state.opts}
-        />
+        <div className='youtube-video__player'>
+          <YouTube
+            videoId={state.video.id.videoId}
+            id={state.video.id.videoId}
+            opts={state.opts}
+          />
+        </div>
+        <div className='youtube-video__player__from-mobile'>
+          <YouTube
+            videoId={state.video.id.videoId}
+            id={state.video.id.videoId}
+            opts={state.mobileOpts}
+          />
+        </div>
 
         <div className='videoDisplayer__info'>
           <h4>{state.video.snippet.title}</h4>

@@ -14,5 +14,10 @@ html, body, #root, .App {
 
 .fix_margins {
   padding: 0 2rem;
-  
+}
+
+@media screen and (max-width: 1024px) {
+  .fix_margins {
+    padding: 0 0.5rem;
+  }
 }

@@ -12,16 +12,19 @@ interface ChildComponentProps extends RouteComponentProps<any> {
 
   video: VideoDataType;
   opts: Options;
+  mobileOpts: Options;
 }
 const VideoCard = ({
   video,
   opts,
+  mobileOpts,
 }: ChildComponentProps): React.ReactElement => {
   const history = useHistory();
   const handleVideoSelect = (): void => {
     history.push(`/video/${video.id.videoId}`, {
       video,
       opts,
+      mobileOpts,
     });
   };
   return (
@@ -30,6 +33,9 @@ const VideoCard = ({
       onClick={() => handleVideoSelect()}
     >
       <img src={video.snippet.thumbnails.medium.url} alt='avatar' />
+      <div className='mobile__image-wrapper'>
+        <img src={video.snippet.thumbnails.default.url} alt='avatar' />
+      </div>
       <div className='videoCard__info'>
         <div className='videoCard__text'>
           <h4 className='videoCard__title'> {video.snippet.title}</h4>

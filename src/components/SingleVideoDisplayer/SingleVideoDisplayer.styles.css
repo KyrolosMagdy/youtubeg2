@@ -20,3 +20,17 @@
 .videoDisplayer__info{
     text-align: right;
 }
+
+.youtube-video__player__from-mobile{
+    display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .youtube-video__player{
+        display: none;
+    }
+
+    .youtube-video__player__from-mobile{
+        display: block;
+    }
+}

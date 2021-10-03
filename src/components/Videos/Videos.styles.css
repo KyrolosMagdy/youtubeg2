@@ -1,0 +1,23 @@
+.headbarWrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__wrapper{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.filter__wrapper > h5 {
+    padding: 0;
+    margin: 0;
+    margin-right: 0.5rem;
+    color: #606060;
+}
+
+.total-results__wrapper{
+    color: #606060;
+    margin-left: 2rem;
+}

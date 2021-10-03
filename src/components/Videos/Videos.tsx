@@ -18,7 +18,9 @@ import LoadingSpinner from '../LoaderSpinner/LoaderSpinner.component';
 
 import { Waypoint } from 'react-waypoint';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faFilter } from '@fortawesome/free-solid-svg-icons';
+
+import './Videos.styles.css';
 
 const Videos = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -31,9 +33,19 @@ const Videos = (): React.ReactElement => {
   const opts: Options = {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 0,
+      autoplay: 1,
     },
     width: '60%',
+
+    host: 'https://www.youtube.com',
+  };
+
+  const mobileOpts: Options = {
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      autoplay: 1,
+    },
+    width: '90%',
 
     host: 'https://www.youtube.com',
   };
@@ -48,12 +60,32 @@ const Videos = (): React.ReactElement => {
     if (videosFetched.pageInfo.totalResults % numberOfVideos === 0) {
       dispatch(fetchMoreVideos(pageToken));
     }
-    console.log('should load more dude: ', videosFetched);
   };
+
   return (
     <div>
       {isVideosFetched === 'loading' && <LoadingSpinner />}
       <div>
+        <div className='headbarWrapper'>
+          <div className='total-results__wrapper'>
+            <h5>
+              {' '}
+              About{' '}
+              {
+                //@ts-ignore
+                videosFetched.pageInfo.totalResults
+              }{' '}
+              filtered result{' '}
+            </h5>
+          </div>
+          <div className='filter__wrapper'>
+            <h5> FILTER </h5>
+            <FontAwesomeIcon icon={faFilter} color='#606060' size='1x' />
+          </div>
+        </div>
+        <div>
+          <hr style={{ color: '#606060', margin: '0 2rem' }} />
+        </div>
         {isVideosFetched === 'successed' &&
           //@ts-ignore
           videosFetched.items.map((v: VideoDataType, index: number) => {
@@ -66,7 +98,12 @@ const Videos = (): React.ReactElement => {
                     align='left'
                   />
                 ) : (
-                  <VideoCard video={v} opts={opts} key={v.id.videoId} />
+                  <VideoCard
+                    video={v}
+                    opts={opts}
+                    mobileOpts={mobileOpts}
+                    key={v.id.videoId}
+                  />
                 )}
               </div>
             );

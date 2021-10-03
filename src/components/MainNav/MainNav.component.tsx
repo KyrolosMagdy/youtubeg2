@@ -1,7 +1,7 @@
 import React from 'react';
 import YoutubeVideo from '../../assets/images/Logo_of_YouTube.svg.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faPlayCircle } from '@fortawesome/free-solid-svg-icons';
 import { useHistory, withRouter } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
@@ -34,8 +34,17 @@ const NavBarComponent = (): React.ReactElement => {
   };
   return (
     <div className='fix_margins mainNav_wrapper '>
-      <div className='navbar_imageContainer' onClick={handleRedirectUser}>
+      <div
+        className='navbar_imageContainer_desktop'
+        onClick={handleRedirectUser}
+      >
         <img src={YoutubeVideo} alt='youtube logo' />
+      </div>
+      <div
+        className='navbar_imageContainer_mobile'
+        onClick={handleRedirectUser}
+      >
+        <FontAwesomeIcon icon={faPlayCircle} color='white' size='2x' />
       </div>
       <div className='search-bar__wrapper'>
         <input

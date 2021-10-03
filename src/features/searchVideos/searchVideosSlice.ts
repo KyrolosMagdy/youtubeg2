@@ -13,7 +13,7 @@ export interface VideosState {
 
 const initialState: VideosState = {
   value: {},
-  status: 'idle',
+  status: 'successed',
   pageNumber: 0,
   nextPageToken: '',
   resultsPerPage: 10,
